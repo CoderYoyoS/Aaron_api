@@ -78,4 +78,4 @@ app.get('/bus'), function(req, res) {
             res.send({ message });
         }
     });
-});
+};
