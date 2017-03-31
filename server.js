@@ -15,7 +15,7 @@ app.set('port', (process.env.PORT || 5000))
 // var router = express.Router();  
 
 app.get('/', function (req, res) {
-	res.send('This is the landing page for the chatbot...')
+	res.send('This is the landing page for the dublin bus API for the chatbot...')
 })
 
 //Start Server
@@ -26,7 +26,7 @@ app.listen(app.get('port'), function () {
 /**
  * Api to make request to bus RTPI API
  */
-app.get('/bus'), function(req, res) {
+app.get('/bus', function(req, res) {
 
         var options = {
             url: 'https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=4747&format=json',
