@@ -26,7 +26,7 @@ app.listen(app.get('port'), function () {
 /**
  * Api to make request to bus RTPI API
  */
-app.get('/bus').get(function(req, res) {
+app.get('/bus'), function(req, res) {
 
         var options = {
             url: 'https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=4747&format=json',
