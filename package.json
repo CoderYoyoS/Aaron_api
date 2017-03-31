@@ -1,0 +1,25 @@
+{
+  "name": "aaronapi",
+  "version": "1.0.0",
+  "description": "An API for access the Dublin bus times",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoderYoyoS/Aaron_api.git"
+  },
+  "author": "Aaron Ward",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoderYoyoS/Aaron_api/issues"
+  },
+  "homepage": "https://github.com/CoderYoyoS/Aaron_api#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "request": "^2.81.0"
+  }
+}
