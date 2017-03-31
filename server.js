@@ -56,11 +56,11 @@ app.get('/bus', function(req, res) {
                         //If the bus is due now, dont display "due in due minutes"
                         if(body.results[i].duetime === "Due"){
                             message += + body.results[i].route + " to " + body.results[i].destination + " due now\n";
+                            
                         }
-
                         //Stop 1 minute appearing as "1 minutes"
                         else if(body.results[i].duetime === "1"){
-                            message += + body.results[i].route + " to " + body.results[i].destination + " due in " + body.results[i].duetime 
+                            message += " " + body.results[i].route + " to " + body.results[i].destination + " due in " + body.results[i].duetime 
                             + " minute\n";
                         }
                         else{
@@ -77,7 +77,7 @@ app.get('/bus', function(req, res) {
 
                 //Send the result back to the requester
                 console.log(message);
-                res.send(message);
+                res.send( message);
             }
         }
     }); 
