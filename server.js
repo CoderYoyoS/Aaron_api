@@ -35,7 +35,7 @@ app.get('/bus', function(req, res) {
         }; 
 
         var message;
-        var busNumber = 239;
+        var busNumber = "39A";
         var all = false;
 
         request(options, function(error, response, body) {
@@ -75,11 +75,10 @@ app.get('/bus', function(req, res) {
                     message = "There is no times available for " + busNumber + " 😕";
                 }
 
+                //Send the result back to the requester
                 console.log(message);
                 res.send(message);
             }
-            //Send the result back to the requester
-            // res.send({ message });
         }
     }); 
 });
