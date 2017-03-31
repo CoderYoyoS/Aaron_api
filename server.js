@@ -12,21 +12,11 @@ app.use(bodyParser.json());
 //Set the port
 app.set('port', (process.env.PORT || 5000))
 
-var router = express.Router();  
-
-// middleware to use for all requests
-router.use(function(req, res, next) {
-    console.log('Something is happening.');
-    next(); 
-});
+// var router = express.Router();  
 
 app.get('/', function (req, res) {
 	res.send('This is the landing page for the chatbot...')
 })
-
-router.get('/', function(req, res) {
-    res.json({ message: 'This is the index page for the Bus API...' });   
-});
 
 //Start Server
 app.listen(app.get('port'), function () {
@@ -36,7 +26,7 @@ app.listen(app.get('port'), function () {
 /**
  * Api to make request to bus RTPI API
  */
-router.route('/bus').get(function(req, res) {
+app.get('/bus').get(function(req, res) {
 
         var options = {
             url: 'https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=4747&format=json',
