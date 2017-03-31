@@ -20,6 +20,10 @@ router.use(function(req, res, next) {
     next(); 
 });
 
+app.get('/', function (req, res) {
+	res.send('This is the landing page for the chatbot...')
+})
+
 router.get('/', function(req, res) {
     res.json({ message: 'This is the index page for the Bus API...' });   
 });
