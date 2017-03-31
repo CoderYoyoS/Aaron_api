@@ -81,5 +81,5 @@ app.get('/bus', function(req, res) {
             //Send the result back to the requester
             res.send({ message });
         }
-    });
+    }); 
 });
