@@ -34,7 +34,7 @@ app.get('/bus', function(req, res) {
             strictSSL: false
         }; 
 
-        var message;
+        var message = "";
         var busNumber = "39A";
         var all = false;
 
@@ -77,7 +77,7 @@ app.get('/bus', function(req, res) {
 
                 //Send the result back to the requester
                 console.log(message);
-                res.send(message);
+                res.send({text: message});
             }
         }
     }); 
