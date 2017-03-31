@@ -56,6 +56,7 @@ app.get('/bus'), function(req, res) {
                         //If the bus is due now, dont display "due in due minutes"
                         if(body.results[i].duetime === "Due"){
                             message += body.results[i].route + " to " + body.results[i].destination + " due now\n";
+                            
                         }
                         //Stop 1 minute appearing as "1 minutes"
                         else if(body.results[i].duetime === "1"){
@@ -73,6 +74,9 @@ app.get('/bus'), function(req, res) {
                 if(resultCount === 0){
                     message = "There is no times available for " + busNumber + " 😕";
                 }
+
+                console.log(message);
+                res.send(message);
             }
             //Send the result back to the requester
             res.send({ message });
