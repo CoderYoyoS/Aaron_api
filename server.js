@@ -79,7 +79,7 @@ app.get('/bus', function(req, res) {
                 res.send(message);
             }
             //Send the result back to the requester
-            res.send({ message });
+            // res.send({ message });
         }
     }); 
 });
