@@ -10,7 +10,8 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
 //Set the port
-var port = process.env.port || 3030;
+app.set('port', (process.env.PORT || 5000))
+
 var router = express.Router();  
 
 // middleware to use for all requests
@@ -24,8 +25,9 @@ router.get('/', function(req, res) {
 });
 
 //Start Server
-app.listen(port);
-console.log('Running on port : ' + port);
+app.listen(app.get('port'), function () {
+	console.log('Bus API server is running on port ', app.get('port'))
+})
 
 /**
  * Api to make request to bus RTPI API
