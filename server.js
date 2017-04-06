@@ -18,6 +18,10 @@ app.get('/', function (req, res) {
 	res.send('This is the landing page for the dublin bus API for the chatbot...')
 })
 
+app.get('/', function (req, res) {
+	res.send('This is the landing page for the dublin bus API for the chatbot...')
+})
+
 //Start Server
 app.listen(app.get('port'), function () {
 	console.log('Bus API server is running on port ', app.get('port'))
@@ -26,7 +30,20 @@ app.listen(app.get('port'), function () {
 /**
  * Api to make request to bus RTPI API
  */
-app.get('/bus', function(req, res) {
+app.get('/bus/:stop_id/:bus_num', function(req, res) {
+
+        var data = {    
+            "bus": {
+                "stop": req.params.stop_id,
+                "bus_num": req.params.bus_num
+            }
+        };
+
+        console.log(data.bus.bus_num);
+        console.log(data.bus.bus_num);
+
+
+        /********************/
 
         var options = {
             url: 'https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=4747&format=json',
@@ -76,7 +93,7 @@ app.get('/bus', function(req, res) {
                 }
 
                 //Send the result back to the requester
-                console.log(message);
+                // console.log(message);
                 res.send( message);
             }
         }
