@@ -12,12 +12,6 @@ app.use(bodyParser.json());
 //Set the port
 app.set('port', (process.env.PORT || 5000))
 
-// var router = express.Router();  
-
-app.get('/', function (req, res) {
-	res.send('This is the landing page for the dublin bus API for the chatbot...')
-})
-
 app.get('/', function (req, res) {
 	res.send('This is the landing page for the dublin bus API for the chatbot...')
 })
@@ -32,6 +26,10 @@ app.listen(app.get('port'), function () {
  */
 app.get('/bus/:stop_id/:bus_num', function(req, res) {
 
+        /**
+         * Assign parameters passed in URL to 
+         * a JSON object
+         */
         var data = {    
             "bus": {
                 "stop_id": req.params.stop_id,
@@ -39,21 +37,30 @@ app.get('/bus/:stop_id/:bus_num', function(req, res) {
             }
         };
 
-        console.log(data.bus.stop_id);
-        console.log(data.bus.bus_num);
+        // console.log(data.bus.stop_id);
+        // console.log(data.bus.bus_num);
 
-
-        /********************/
-
-        var options = {
-            url: 'https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=4747&format=json',
-            method : 'GET',
-            strictSSL: false
-        }; 
 
         var message = "";
         var busNumber = "39A";
         var all = false;
+
+        /** Assign stop id and bus number to the values
+         * passed by chat bot
+         */
+        var stopId = data.bus.stop_id;
+        var busNumber = data.bus.bus_num;
+        if(busNumber == "all"){
+            all = true;
+        }
+
+        /********************/
+
+        var options = {
+            url: 'https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=' + stopId + '&format=json',
+            method : 'GET',
+            strictSSL: false
+        }; 
 
         request(options, function(error, response, body) {
         if(error){
