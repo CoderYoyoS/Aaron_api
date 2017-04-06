@@ -39,7 +39,7 @@ app.get('/bus/:stop_id/:bus_num', function(req, res) {
             }
         };
 
-        console.log(data.bus.bus_num);
+        console.log(data.bus.stop_id);
         console.log(data.bus.bus_num);
 
 
