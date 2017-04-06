@@ -34,7 +34,7 @@ app.get('/bus/:stop_id/:bus_num', function(req, res) {
 
         var data = {    
             "bus": {
-                "stop": req.params.stop_id,
+                "stop_id": req.params.stop_id,
                 "bus_num": req.params.bus_num
             }
         };
