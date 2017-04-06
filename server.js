@@ -1,3 +1,10 @@
+/**
+ * This is an API for retrieving real time bus information using
+ * express and the RTPI realtime data API.
+ * 
+ * This takes the infomation given back and assigns it to suitable messages.
+ */
+
 //Dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -37,12 +44,9 @@ app.get('/bus/:stop_id/:bus_num', function(req, res) {
             }
         };
 
-        // console.log(data.bus.stop_id);
-        // console.log(data.bus.bus_num);
-
-
         var message = "";
-        var busNumber = "39A";
+
+        //All routes button picked by user
         var all = false;
 
         /** Assign stop id and bus number to the values
@@ -54,7 +58,8 @@ app.get('/bus/:stop_id/:bus_num', function(req, res) {
             all = true;
         }
 
-        /********************/
+
+        /******************************/
 
         var options = {
             url: 'https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=' + stopId + '&format=json',
@@ -62,6 +67,9 @@ app.get('/bus/:stop_id/:bus_num', function(req, res) {
             strictSSL: false
         }; 
 
+        /**
+         * Make a request to for dublin bus API and repond to chatbot
+         */
         request(options, function(error, response, body) {
         if(error){
             console.log(error);
@@ -100,7 +108,6 @@ app.get('/bus/:stop_id/:bus_num', function(req, res) {
                 }
 
                 //Send the result back to the requester
-                // console.log(message);
                 res.send( message);
             }
         }
