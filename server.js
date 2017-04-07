@@ -59,6 +59,13 @@ app.get('/bus/:stop_id/:bus_num', function(req, res) {
             all = true;
         }
 
+        //Check because 39a and 39 are at a different stop
+        if(stopId == "7026"){
+            if(busNumber == "39"|| busNumber == "39A"){
+                stopId = "7025";
+            }
+        }
+
 
         /******************************/
 
