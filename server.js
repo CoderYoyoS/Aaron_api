@@ -55,7 +55,7 @@ app.get('/bus/:stop_id/:bus_num', function(req, res) {
          */
         var stopId = data.bus.stop_id;
         var busNumber = data.bus.bus_num;
-        if(busNumber == "all"){
+        if(busNumber == "All"){
             all = true;
         }
 
