@@ -55,6 +55,9 @@ app.get('/bus/:stop_id/:bus_num', function(req, res) {
          */
         var stopId = data.bus.stop_id;
         var busNumber = data.bus.bus_num;
+
+        decodeURIComponent(busNumber);
+
         if(busNumber == "All"){
             all = true;
         }
