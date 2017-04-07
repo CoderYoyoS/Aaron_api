@@ -49,7 +49,8 @@ app.get('/bus/:stop_id/:bus_num', function(req, res) {
         //All routes button picked by user
         var all = false;
 
-        /** Assign stop id and bus number to the values
+        /** 
+         * Assign stop id and bus number to the values
          * passed by chat bot
          */
         var stopId = data.bus.stop_id;
@@ -75,6 +76,7 @@ app.get('/bus/:stop_id/:bus_num', function(req, res) {
             console.log(error);
         }
         else{
+            
             body = JSON.parse(body);
             //numberofresults will return as 0 if it past half 11
             if(body.numberofresults === 0){
